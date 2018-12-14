@@ -3,6 +3,8 @@
 Plugin for `@jib/cli` to support the extensible prompt framework,
 [`inquirer`](https://www.npmjs.com/package/inquirer).
 
+[![wercker status](https://app.wercker.com/status/270e97b656d272fee1fb5806b01377fa/s/master "wercker status")](https://app.wercker.com/project/byKey/270e97b656d272fee1fb5806b01377fa)
+
 ## About
 
 This project was generated using the [`jib`](https://www.npmjs.com/package/@jib/jib)
