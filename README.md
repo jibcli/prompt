@@ -35,3 +35,11 @@ class MyCustomCommand {
   }
 }
 ```
+
+Provide a custom adapter when prompts should be handled differently (like unit tests)
+
+```typescript
+JibPrompt.adapter({
+  prompt: (questions: any) => Promise.resolve({}),
+});
+```

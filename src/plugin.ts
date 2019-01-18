@@ -7,7 +7,8 @@ export interface JibPrompt extends inquirer.Inquirer { }
 export interface IPromptAdapter {
   prompt(questions: inquirer.Questions): Promise<any>;
   prompt<T>(questions: inquirer.Questions<T>): Promise<T>;
-  prompt<T>(questions: inquirer.Questions<T>, cb: (answers: T) => any): inquirer.ui.Prompt;
+  prompt<T>(questions: inquirer.Questions<T>, cb: (answers: T) => any): any;
+  prompt<T>(questions: inquirer.Questions<T>, cb?: (answers: T) => any): Promise<T> | any;
 }
 
 @Provide<JibPrompt>({
@@ -29,6 +30,12 @@ export class JibPrompt implements IPromptAdapter {
   /**
    * Use custom prompt adapter to resolve questions into answers.
    * @param adapter
+   *
+   * ```typescript
+   * JibPrompt.adapter({
+   *   prompt: (questions: any, cb?: any) => Promise.resolve({}),
+   * });
+   * ```
    */
   public static adapter(adapter: IPromptAdapter): void {
     this._adapter = adapter;
